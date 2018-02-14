@@ -1,0 +1,14 @@
+<agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="hello($event)" [scrollwheel]="false">
+	<agm-marker *ngFor="let single of myOptions1" [latitude]="single.latitude" [longitude]="single.longitude">
+		<agm-info-window>
+      		<strong>{{single.latitude}}</strong>
+      	</agm-info-window>
+	</agm-marker>
+		<ng-container>
+       		<agm-polyline *ngFor="let polyline of myOptions;let i = index;"  [strokeColor]="polyline.color">
+          		<agm-polyline-point *ngFor="let point of polyline.path" [latitude]="point.latitude" [longitude]="point.longitude">
+          		</agm-polyline-point>
+      		</agm-polyline>
+    	</ng-container>
+</agm-map>
+
